@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
   SafeAreaView,
+  Dimensions,
 } from "react-native";
 import HTML from "react-native-render-html";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -16,9 +17,12 @@ const Event = ({ navigation }) => {
   const eventUrl = navigation.getParam("url");
   const eventTitle = navigation.getParam("name").text;
 
+  const imgWidth = Dimensions.get("window").width - 50;
+
   const tagsStyles = {
     p: { fontSize: 16, fontFamily: "raleway", color: "#193B4F" },
     h2: { fontSize: 16, fontFamily: "raleway", color: "#193B4F" },
+    img: { borderRadius: 6, alignSelf: "center", maxWidth: imgWidth },
   };
 
   return (
