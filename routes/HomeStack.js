@@ -24,7 +24,7 @@ const screens = {
 
 const HomeStack = createStackNavigator(screens, {
   defaultNavigationOptions: {
-    headerStyle: { height: 120 },
+    headerStyle: { height: 100 },
   },
 });
 
