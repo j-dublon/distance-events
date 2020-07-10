@@ -1,21 +1,20 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import Header from "./shared/Header";
+import React, { useState } from "react";
+import * as Font from "expo-font";
+import Navigator from "./routes/HomeStack";
+import { AppLoading } from "expo";
+
+const getFonts = () =>
+  Font.loadAsync({
+    "raleway-regular": require("./assets/fonts/Raleway-Regular.ttf"),
+  });
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Header />
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+  if (fontsLoaded) {
+    return <Navigator />;
+  } else {
+    return (
+      <AppLoading startAsync={getFonts} onFinish={() => setFontsLoaded(true)} />
+    );
+  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
