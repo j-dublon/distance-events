@@ -5,6 +5,7 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import * as api from "../utils/api";
 import modifyDate from "../utils/modifyDate";
@@ -41,6 +42,7 @@ export default class Home extends Component {
               style={styles.event}
             >
               <View style={styles.eventContent}>
+                <Image source={{ uri: item.logo.url }} style={styles.image} />
                 <Text
                   style={{
                     ...styles.eventContentText,
@@ -69,7 +71,7 @@ const styles = StyleSheet.create({
   },
   intro: {
     fontFamily: "raleway",
-    marginTop: 140,
+    marginTop: 120,
     marginBottom: 40,
     fontSize: 18,
   },
@@ -90,9 +92,15 @@ const styles = StyleSheet.create({
   eventContentText: {
     fontFamily: "raleway",
     color: "#F06427",
+    textAlign: "center",
   },
   eventContentTitle: {
     fontSize: 16,
     fontFamily: "raleway-bold",
+  },
+  image: {
+    width: "70%",
+    height: 100,
+    alignSelf: "center",
   },
 });
