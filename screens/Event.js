@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
   return: {
     fontFamily: "raleway",
-    color: "#193B4F",
+    color: "#F06427",
     marginTop: 120,
     flexDirection: "row",
   },
@@ -74,10 +74,12 @@ const styles = StyleSheet.create({
     marginTop: 0,
     fontSize: 18,
     fontFamily: "raleway-bold-italic",
+    textDecorationLine: "underline",
+    textDecorationColor: "#193B4F",
   },
   link: {
     fontFamily: "raleway",
-    color: "#193B4F",
+    color: "#F06427",
     marginTop: 30,
     flexDirection: "row",
   },
@@ -85,9 +87,11 @@ const styles = StyleSheet.create({
     marginTop: 0,
     fontSize: 18,
     fontFamily: "raleway-bold-italic",
+    textDecorationLine: "underline",
+    textDecorationColor: "#193B4F",
   },
   icon: {
-    color: "#193B4F",
+    color: "#F06427",
     alignSelf: "center",
   },
   content: {
@@ -98,11 +102,10 @@ const styles = StyleSheet.create({
   },
   eventTitle: {
     textAlign: "center",
-    fontSize: 18,
-    fontFamily: "raleway-bold",
-    marginBottom: 30,
+    fontSize: 22,
+    fontFamily: "raleway-bold-italic",
+    marginBottom: 24,
     color: "#193B4F",
-    textDecorationLine: "underline",
   },
   ScrollView: {
     backgroundColor: "#e6f5f9",
