@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import * as api from "../utils/api";
+import modifyDate from "../utils/modifyDate";
 
 export default class Home extends Component {
   state = {
@@ -36,6 +37,7 @@ export default class Home extends Component {
               }}
             >
               <Text>{item.name.text}</Text>
+              <Text>{modifyDate(item.start.local)}</Text>
             </TouchableOpacity>
           )}
         />

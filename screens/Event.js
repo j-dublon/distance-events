@@ -7,13 +7,32 @@ import {
   ScrollView,
 } from "react-native";
 import HTML from "react-native-render-html";
+import { MaterialIcons } from "@expo/vector-icons";
+import * as Linking from "expo-linking";
 
 const Event = ({ navigation }) => {
   const htmlContent = navigation.getParam("description").html;
+  const eventUrl = navigation.getParam("url");
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-        <Text style={styles.return}>Return to homepage</Text>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Home")}
+        style={styles.return}
+      >
+        <MaterialIcons name="arrow-back" size={20} style={styles.icon} />
+        <Text style={{ ...styles.return, ...styles.returnText }}>
+          Return to homepage
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.link}
+        onPress={() => Linking.openURL(eventUrl)}
+      >
+        <Text style={{ ...styles.link, ...styles.linkText }}>
+          View and book on Eventbrite
+        </Text>
+        <MaterialIcons name="arrow-forward" size={20} style={styles.icon} />
       </TouchableOpacity>
       <View style={styles.content}>
         <ScrollView>
@@ -35,11 +54,30 @@ const styles = StyleSheet.create({
   },
   return: {
     fontFamily: "raleway",
+    color: "#193B4F",
     marginTop: 130,
+    flexDirection: "row",
+  },
+  returnText: {
+    marginTop: 0,
+    fontSize: 18,
+  },
+  link: {
+    fontFamily: "raleway",
+    color: "#193B4F",
+    marginTop: 20,
+    flexDirection: "row",
+  },
+  linkText: {
+    marginTop: 0,
+    fontSize: 18,
+  },
+  icon: {
+    color: "#193B4F",
+    alignSelf: "center",
   },
   content: {
     flex: 1,
-    fontFamily: "raleway",
     marginTop: 50,
   },
 });
