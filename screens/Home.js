@@ -29,7 +29,7 @@ export default class Home extends Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.content}>Click on an event to learn more!</Text>
+        <Text style={styles.intro}>Click on an event to learn more!</Text>
         <FlatList
           data={events}
           keyExtractor={(item) => String(Math.random() * 1)}
@@ -38,9 +38,21 @@ export default class Home extends Component {
               onPress={() => {
                 navigation.navigate("Event", item);
               }}
+              style={styles.event}
             >
-              <Text>{item.name.text}</Text>
-              <Text>{modifyDate(item.start.local)}</Text>
+              <View style={styles.eventContent}>
+                <Text
+                  style={{
+                    ...styles.eventContentText,
+                    ...styles.eventContentTitle,
+                  }}
+                >
+                  {item.name.text}
+                </Text>
+                <Text style={styles.eventContentText}>
+                  {modifyDate(item.start.local)}
+                </Text>
+              </View>
             </TouchableOpacity>
           )}
         />
@@ -54,10 +66,33 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#9AD7E7",
     alignItems: "center",
-    // justifyContent: "center",
   },
-  content: {
+  intro: {
     fontFamily: "raleway",
-    marginTop: 150,
+    marginTop: 140,
+    marginBottom: 40,
+    fontSize: 18,
+  },
+  event: {
+    borderRadius: 8,
+    backgroundColor: "#193B4F",
+    shadowOffset: { width: 2, height: 2 },
+    shadowColor: "#1F465B",
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    marginHorizontal: 4,
+    marginVertical: 6,
+  },
+  eventContent: {
+    marginHorizontal: 18,
+    marginVertical: 20,
+  },
+  eventContentText: {
+    fontFamily: "raleway",
+    color: "#F06427",
+  },
+  eventContentTitle: {
+    fontSize: 16,
+    fontFamily: "raleway-bold",
   },
 });

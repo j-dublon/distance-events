@@ -6,6 +6,7 @@ import { AppLoading } from "expo";
 const getFonts = () =>
   Font.loadAsync({
     raleway: require("./assets/fonts/Raleway-Regular.ttf"),
+    "raleway-bold": require("./assets/fonts/Raleway-Bold.ttf"),
   });
 
 export default function App() {

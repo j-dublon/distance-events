@@ -13,6 +13,7 @@ import * as Linking from "expo-linking";
 const Event = ({ navigation }) => {
   const htmlContent = navigation.getParam("description").html;
   const eventUrl = navigation.getParam("url");
+  const eventTitle = navigation.getParam("name").text;
 
   return (
     <View style={styles.container}>
@@ -36,6 +37,7 @@ const Event = ({ navigation }) => {
       </TouchableOpacity>
       <View style={styles.content}>
         <ScrollView>
+          <Text>{eventTitle}</Text>
           <HTML html={htmlContent} />
         </ScrollView>
       </View>
