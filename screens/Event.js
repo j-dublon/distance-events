@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  SafeAreaView,
 } from "react-native";
 import HTML from "react-native-render-html";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -14,6 +15,11 @@ const Event = ({ navigation }) => {
   const htmlContent = navigation.getParam("description").html;
   const eventUrl = navigation.getParam("url");
   const eventTitle = navigation.getParam("name").text;
+
+  const tagsStyles = {
+    p: { fontSize: 16, fontFamily: "raleway", color: "#193B4F" },
+    h2: { fontSize: 16, fontFamily: "raleway", color: "#193B4F" },
+  };
 
   return (
     <View style={styles.container}>
@@ -36,9 +42,10 @@ const Event = ({ navigation }) => {
         <MaterialIcons name="arrow-forward" size={20} style={styles.icon} />
       </TouchableOpacity>
       <View style={styles.content}>
-        <ScrollView>
-          <Text>{eventTitle}</Text>
-          <HTML html={htmlContent} />
+        <Text style={styles.eventTitle}>{eventTitle}</Text>
+        <ScrollView style={styles.ScrollView}>
+          <HTML html={htmlContent} tagsStyles={tagsStyles} />
+          <Text>{}</Text>
         </ScrollView>
       </View>
     </View>
@@ -52,27 +59,28 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#9AD7E7",
     alignItems: "center",
-    // justifyContent: "center",
   },
   return: {
     fontFamily: "raleway",
     color: "#193B4F",
-    marginTop: 130,
+    marginTop: 120,
     flexDirection: "row",
   },
   returnText: {
     marginTop: 0,
     fontSize: 18,
+    fontFamily: "raleway-bold-italic",
   },
   link: {
     fontFamily: "raleway",
     color: "#193B4F",
-    marginTop: 20,
+    marginTop: 30,
     flexDirection: "row",
   },
   linkText: {
     marginTop: 0,
     fontSize: 18,
+    fontFamily: "raleway-bold-italic",
   },
   icon: {
     color: "#193B4F",
@@ -80,6 +88,21 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    marginTop: 50,
+    marginTop: 40,
+    width: "90%",
+    marginBottom: 40,
+  },
+  eventTitle: {
+    textAlign: "center",
+    fontSize: 18,
+    fontFamily: "raleway-bold",
+    marginBottom: 30,
+    color: "#193B4F",
+    textDecorationLine: "underline",
+  },
+  ScrollView: {
+    backgroundColor: "#e6f5f9",
+    padding: 10,
+    borderRadius: 6,
   },
 });

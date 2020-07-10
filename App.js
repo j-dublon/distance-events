@@ -7,6 +7,7 @@ const getFonts = () =>
   Font.loadAsync({
     raleway: require("./assets/fonts/Raleway-Regular.ttf"),
     "raleway-bold": require("./assets/fonts/Raleway-Bold.ttf"),
+    "raleway-bold-italic": require("./assets/fonts/Raleway-BoldItalic.ttf"),
   });
 
 export default function App() {
