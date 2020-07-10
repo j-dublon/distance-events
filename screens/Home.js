@@ -17,13 +17,16 @@ export default class Home extends Component {
 
   componentDidMount() {
     api.fetchEvents().then((events) => {
-      this.setState({ events: events, isLoading: false });
+      const correctedEvents = [...events];
+      correctedEvents[2].name.text = "Snoop Dogg 'I Wanna Thank Me' 2020 Tour";
+      this.setState({ events: correctedEvents, isLoading: false });
     });
   }
 
   render() {
     const { events } = this.state;
     const { navigation } = this.props;
+
     return (
       <View style={styles.container}>
         <Text style={styles.content}>Click on an event to learn more!</Text>
