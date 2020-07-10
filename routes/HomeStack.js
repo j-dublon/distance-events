@@ -18,6 +18,7 @@ const screens = {
     navigationOptions: {
       headerTitle: () => <Header />,
       headerTransparent: true,
+      headerLeft: null,
     },
   },
 };

@@ -1,10 +1,25 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
+import HTML from "react-native-render-html";
 
-const Event = () => {
+const Event = ({ navigation }) => {
+  const htmlContent = navigation.getParam("description").html;
   return (
     <View style={styles.container}>
-      <Text style={styles.content}>Event page</Text>
+      <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+        <Text style={styles.return}>Return to homepage</Text>
+      </TouchableOpacity>
+      <View style={styles.content}>
+        <ScrollView>
+          <HTML html={htmlContent} />
+        </ScrollView>
+      </View>
     </View>
   );
 };
@@ -18,8 +33,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     // justifyContent: "center",
   },
-  content: {
+  return: {
     fontFamily: "raleway",
-    marginTop: 150,
+    marginTop: 130,
+  },
+  content: {
+    flex: 1,
+    fontFamily: "raleway",
+    marginTop: 50,
   },
 });

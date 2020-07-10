@@ -28,9 +28,12 @@ export default class Home extends Component {
         <Text style={styles.content}>Click on an event to learn more!</Text>
         <FlatList
           data={events}
+          keyExtractor={(item) => String(Math.random() * 1)}
           renderItem={({ item }) => (
             <TouchableOpacity
-              onPress={() => navigation.navigate("Events", item)}
+              onPress={() => {
+                navigation.navigate("Event", item);
+              }}
             >
               <Text>{item.name.text}</Text>
             </TouchableOpacity>
